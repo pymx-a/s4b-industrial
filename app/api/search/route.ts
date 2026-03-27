@@ -8,6 +8,10 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Search query (sr) is required' }, { status: 400 });
   }
 
+  if (query.length > 100) {
+    return NextResponse.json({ error: 'Search query too long (max 100 chars)' }, { status: 400 });
+  }
+
   const login = process.env.S4B_LOGIN;
   const password = process.env.S4B_PASSWORD;
   const baseUrl = process.env.S4B_API_URL || 'http://s4b.ru/s.jsp';
