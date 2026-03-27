@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: theme('colors.neutral.800');
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.neutral.700');
+}
+
+.fluid-table-text {
+  font-size: clamp(0.6rem, 0.75vw, 0.85rem);
+  line-height: 1.3;
+}
+
+.fluid-table-header {
+  font-size: clamp(0.5rem, 0.65vw, 0.7rem);
+  line-height: 1;
+}
+
+.fluid-padding {
+  padding-left: clamp(0.35rem, 0.8vw, 1rem);
+  padding-right: clamp(0.35rem, 0.8vw, 1rem);
+  padding-top: clamp(0.4rem, 0.6vw, 0.8rem);
+  padding-bottom: clamp(0.4rem, 0.6vw, 0.8rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
